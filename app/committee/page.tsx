@@ -91,7 +91,7 @@ const defaultTiltOptions = {
   reverse: false,
   max: 15,
   perspective: 1000,
-  scale: 1.03,
+  scale: 1,
   speed: 1000,
   transition: true,
   axis: null,
@@ -101,8 +101,24 @@ const defaultTiltOptions = {
 
 export default function CommitteePage() {
   const [selectedCommittee, setSelectedCommittee] = useState<Committee | null>(null);
-  // Always show scroll button at top of page
-  const [showScrollButton] = useState(true);
+  const [showScrollButton, setShowScrollButton] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Check if the screen is mobile size on component mount and window resize
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // Standard mobile breakpoint
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add event listener for resize
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   const openModal = (committee: Committee) => setSelectedCommittee(committee);
   const closeModal = () => setSelectedCommittee(null);
@@ -131,7 +147,7 @@ export default function CommitteePage() {
           {committees.map((committee) => (
             <Tilt key={committee.id} options={defaultTiltOptions}>
               <div
-                className="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer h-full transition-all duration-300 hover:shadow-lg border border-sky-100 flex flex-col"
+                className="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer h-full transition-shadow duration-300 hover:shadow-lg border border-sky-100 flex flex-col"
                 onClick={() => openModal(committee)}
               >
                 <div className="relative aspect-[4/3] w-full">
@@ -149,7 +165,8 @@ export default function CommitteePage() {
                   />
                 </div>
 
-                <div className="p-6 mt-auto bg-white border-t border-sky-100">
+                {/* Fixed card content section - consistent height and no mt-auto */}
+                <div className="p-6 flex-grow bg-white border-t border-sky-100 flex flex-col">
                   <h2 className="text-xl font-semibold text-gray-800 mb-3">{committee.name}</h2>
                   <p className="text-gray-600 text-sm line-clamp-3">{committee.description}</p>
                 </div>
@@ -221,19 +238,21 @@ export default function CommitteePage() {
           )}
         </AnimatePresence>
         
-        {/* Scroll to End Button - Fixed to top right */}
-        <motion.button
-          initial={{ opacity: 0.9 }}
-          animate={{ opacity: 0.9 }}
-          whileHover={{ opacity: 1 }}
-          onClick={scrollToEnd}
-          className="fixed top-4 right-4 p-2 rounded-full bg-sky-600 text-white shadow-lg z-40 hover:bg-sky-700 transition-all duration-300 w-10 h-10 flex items-center justify-center"
-          aria-label="Scroll to bottom"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </motion.button>
+        {/* Scroll to End Button - Fixed to top right, hidden on mobile */}
+        {showScrollButton && !isMobile && (
+          <motion.button
+            initial={{ opacity: 0.9 }}
+            animate={{ opacity: 0.9 }}
+            whileHover={{ opacity: 1 }}
+            onClick={scrollToEnd}
+            className="fixed top-4 right-4 p-2 rounded-full bg-sky-600 text-white shadow-lg z-40 hover:bg-sky-700 transition-all duration-300 w-10 h-10 flex items-center justify-center"
+            aria-label="Scroll to bottom"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+            </svg>
+          </motion.button>
+        )}
       </main>
     </div>
   );
