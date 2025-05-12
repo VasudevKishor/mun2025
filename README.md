@@ -15,7 +15,7 @@ Follow the steps below to set up and run the project locally.
 
 1.  **Clone the Repository**
     ```bash
-    git clone [https://github.com/your-username/mun2025.git](https://github.com/your-username/mun2025.git)
+    git clone [https://github.com/SudharsanSaravanan/mun2025.git](https://github.com/SudharsanSaravanan/mun2025.git)
     cd mun2025
     ```
 
