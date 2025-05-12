@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Tilt } from "react-tilt";
 import { motion, AnimatePresence } from "framer-motion";
@@ -18,13 +18,11 @@ interface Committee {
   members: CommitteeMember[];
 }
 
-const commonDescription = "This committee provides a platform for delegates. It is a unique environment crafted to simulate real-world diplomacy. Delegates come together from diverse backgrounds.They represent different ideologies, cultures, and countries. This diversity fosters a vibrant and dynamic environment. Each delegate brings a distinct perspective. These perspectives enrich the discussion. The platform encourages active engagement. It promotes respectful discourse. Delegates are urged to listen and respond thoughtfully. The committee is designed for meaningful debate. Debate here is not mere argumentation. It is a tool for understanding complex global dynamics. Delegates deliberate on pressing issues. They explore different sides of each topic. They examine historical contexts. They consider current events and trends. Every opinion is valued. Every contribution moves the discussion forward. The committee values evidence-based reasoning. Diplomatic skills are central to this simulation. Participants learn how to negotiate effectively. They develop persuasive communication techniques. They practice strategic thinking. They refine public speaking abilities. They learn the importance of empathy in diplomacy. Diplomacy is more than speaking; it's about understanding. It involves collaboration. It demands patience. It requires the ability to compromise. National and global issues are tackled. Delegates address challenges that affect our world. Topics may include climate change. Others may focus on human rights. Economic development is often discussed. Public health crises may also be debated. Delegates research their topics in depth. They prepare position papers. They craft arguments rooted in fact. They think critically about possible solutions. The simulation mirrors real-world processes. Committees resemble actual international and national bodies. These include the United Nations. They may also include national parliaments. Participants are assigned roles. They may act as ambassadors. Some may represent ministers. Others take on the roles of government advisors. Each role has a purpose. Each role contributes to the outcome. Policy-making is a focus of this committee. Delegates simulate the drafting of policies. They analyze the implications of various proposals. They consider how policies impact different groups. They identify stakeholders. They think about enforcement mechanisms. They evaluate the sustainability of solutions. The policy-making process is iterative. It involves research. It requires feedback and revision. Negotiation is another critical skill developed. Delegates work with allies. They also reach out to opponents. They search for common ground. They draft clauses together. They debate wording. They seek balance in representation. They learn to stand firm. But they also learn to yield strategically. They aim for consensus whenever possible.";
-
 const committees: Committee[] = [
   {
     id: 1,
-    name: "United Nations Security Council",
-    description: commonDescription,
+    name: "United Nations Security Council (UNSC)",
+    description: "Step into the shoes of global leaders within the esteemed UN Security Council. Representing diverse member states, you will navigate the complex landscape of international security through collaborative diplomacy, crafting resolutions that illuminate the path towards diplomatic solutions and safeguarding global peace.",
     logo: "/images/un_logo.png",
     members: [
       { name: "Chairperson", image: "/images/watermelon_head.jpg" },
@@ -34,8 +32,8 @@ const committees: Committee[] = [
   },
   {
     id: 2,
-    name: "United Nations Human Rights Council",
-    description: commonDescription,
+    name: "United Nations Conference on Trade and Development (UNCTAD)",
+    description: "Join us in unraveling the complexities of international trade, investment, and sustainable development at the United Nations Conference on Trade and Development. Engage in formal discussions surrounding globalization, negotiate trade agreements, and co-create innovative solutions to foster a more equitable and prosperous future for all nations, particularly those in the developing world.",
     logo: "/images/un_logo.png",
     members: [
       { name: "Chairperson", image: "/images/watermelon_head.jpg" },
@@ -45,8 +43,8 @@ const committees: Committee[] = [
   },
   {
     id: 3,
-    name: "Pakistan National Assembly",
-    description: commonDescription,
+    name: "United Nations High Commissioner for Refugees (UNHCR)",
+    description: "Advocate for the rights and well-being of displaced persons worldwide as a delegate within the United Nations High Commissioner for Refugees. Delve into the complexities of refugee crises and asylum policies, striving to uphold principles of compassion, protection, and solidarity while working towards durable solutions that restore hope and dignity to those forced to flee their homes.",
     logo: "/images/un_logo.png",
     members: [
       { name: "Speaker", image: "/images/watermelon_head.jpg" },
@@ -56,8 +54,8 @@ const committees: Committee[] = [
   },
   {
     id: 4,
-    name: "World Health Organization",
-    description: commonDescription,
+    name: "All India Political Parties Meet (AIPPM)",
+    description: "Join us at the All India Political Parties Meet, where the diverse voices of India's political landscape converge to address pressing national and global challenges. Engage in spirited debates, negotiate alliances, and craft policy positions that reflect the interests and aspirations of your constituency, driving progress and prosperity for all citizens.",
     logo: "/images/un_logo.png",
     members: [
       { name: "Director-General", image: "/images/watermelon_head.jpg" },
@@ -67,8 +65,8 @@ const committees: Committee[] = [
   },
   {
     id: 5,
-    name: "United Nations Environment Programme",
-    description: commonDescription,
+    name: "Historic Crisis Committee",
+    description: "Step back in time and immerse yourself in the intricate web of historical events and geopolitical tensions as a member of the Historic Crisis Committee. From pivotal moments in world history to fictionalized scenarios inspired by real-world dynamics, your decisions will shape the course of history and leave an indelible mark on the world stage.",
     logo: "/images/un_logo.png",
     members: [
       { name: "Executive Director", image: "/images/watermelon_head.jpg" },
@@ -78,35 +76,13 @@ const committees: Committee[] = [
   },
   {
     id: 6,
-    name: "International Court of Justice",
-    description: commonDescription,
+    name: "International Press",
+    description: "As members of the International Press, you hold the power to shape narratives and uncover the depths of global events. From capturing pivotal moments to delving into diplomatic discourse, your role is to foster transparency and amplify the voices of those shaping our shared future on the international stage.",
     logo: "/images/un_logo.png",
     members: [
       { name: "President", image: "/images/watermelon_head.jpg" },
       { name: "Vice President", image: "/images/watermelon_head.jpg" },
       { name: "Registrar", image: "/images/watermelon_head.jpg" }
-    ]
-  },
-  {
-    id: 7,
-    name: "UN Women",
-    description: commonDescription,
-    logo: "/images/un_logo.png",
-    members: [
-      { name: "Executive Director", image: "/images/watermelon_head.jpg" },
-      { name: "Deputy Director", image: "/images/watermelon_head.jpg" },
-      { name: "Programme Specialist", image: "/images/watermelon_head.jpg" }
-    ]
-  },
-  {
-    id: 8,
-    name: "United Nations Economic and Social Council",
-    description: commonDescription,
-    logo: "/images/un_logo.png",
-    members: [
-      { name: "President", image: "/images/watermelon_head.jpg" },
-      { name: "Vice President", image: "/images/watermelon_head.jpg" },
-      { name: "Secretary", image: "/images/watermelon_head.jpg" }
     ]
   }
 ];
@@ -125,12 +101,21 @@ const defaultTiltOptions = {
 
 export default function CommitteePage() {
   const [selectedCommittee, setSelectedCommittee] = useState<Committee | null>(null);
+  // Always show scroll button at top of page
+  const [showScrollButton] = useState(true);
 
   const openModal = (committee: Committee) => setSelectedCommittee(committee);
   const closeModal = () => setSelectedCommittee(null);
 
   const handleRegister = (committeeId: number) => console.log(`Registering for committee ${committeeId}`);
   const handleCountryMatrix = (committeeId: number) => console.log(`Opening country matrix for committee ${committeeId}`);
+
+  const scrollToEnd = () => {
+    window.scrollTo({
+      top: document.documentElement.scrollHeight,
+      behavior: 'smooth'
+    });
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -142,14 +127,14 @@ export default function CommitteePage() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {committees.map((committee) => (
             <Tilt key={committee.id} options={defaultTiltOptions}>
               <div
-                className="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 border border-sky-100 flex flex-col"
+                className="bg-white rounded-xl shadow-md overflow-hidden cursor-pointer h-full transition-all duration-300 hover:shadow-lg border border-sky-100 flex flex-col"
                 onClick={() => openModal(committee)}
               >
-                <div className="relative h-64 w-full">
+                <div className="relative aspect-[4/3] w-full">
                   <Image
                     src={committee.logo}
                     alt={`${committee.name} logo`}
@@ -164,9 +149,9 @@ export default function CommitteePage() {
                   />
                 </div>
 
-                <div className="p-4 mt-auto bg-white border-t border-sky-100">
-                  <h2 className="text-xl font-semibold text-gray-800 mb-2">{committee.name}</h2>
-                  <p className="text-gray-600 text-sm line-clamp-2">{committee.description}</p>
+                <div className="p-6 mt-auto bg-white border-t border-sky-100">
+                  <h2 className="text-xl font-semibold text-gray-800 mb-3">{committee.name}</h2>
+                  <p className="text-gray-600 text-sm line-clamp-3">{committee.description}</p>
                 </div>
               </div>
             </Tilt>
@@ -235,6 +220,20 @@ export default function CommitteePage() {
             </div>
           )}
         </AnimatePresence>
+        
+        {/* Scroll to End Button - Fixed to top right */}
+        <motion.button
+          initial={{ opacity: 0.9 }}
+          animate={{ opacity: 0.9 }}
+          whileHover={{ opacity: 1 }}
+          onClick={scrollToEnd}
+          className="fixed top-4 right-4 p-2 rounded-full bg-sky-600 text-white shadow-lg z-40 hover:bg-sky-700 transition-all duration-300 w-10 h-10 flex items-center justify-center"
+          aria-label="Scroll to bottom"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-5 h-5">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </motion.button>
       </main>
     </div>
   );
