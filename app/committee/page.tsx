@@ -135,6 +135,8 @@ export default function CommitteePage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <br />
+      <br />
       <main className="container mx-auto py-12 px-4 sm:px-6">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Our Committees</h1>
