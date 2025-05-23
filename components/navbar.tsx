@@ -8,9 +8,7 @@ import Image from 'next/image';
 const links = [
   { href: "/", label: "Home" },
   { href: "/committee", label: "Committees" },
-  { href: "/events", label: "Events" },
   { href: "/team", label: "Team" },
-  { href: "/gallery", label: "Gallery" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -21,17 +19,21 @@ export function Navbar() {
   return (
     <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-200">
       <div className="max-w-screen-xl mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center gap-2 text-decoration-none">
-            <Image
+            <Image className="mt-4"
               src="/images/AMRITA_MUN'25.png"
               alt="MUN Logo"
-              width={40}
-              height={40}
+              width={100}
+              height={100}
               priority
             />
-            <span className="font-bold text-xl text-blue-400">Amrita Model United Nations Society</span>
+            {/* <span className="font-bold text-xl" style={{ color: '#009EDB' }}>Amrita Model United Nations Society</span> */}
+          <div className="flex flex-col leading-none">
+            <span className="text-2xl font-bold text-[#00B7FF] -ml-3">AMRITA-MUN'25</span>
+          </div>
           </Link>
+
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex gap-8">
@@ -41,22 +43,25 @@ export function Navbar() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`relative text-sm font-medium text-gray-600 hover:text-blue-400 transition-colors duration-300
-                    after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.5 after:w-0 after:bg-blue-400 after:transition-all after:duration-300
+                  className={`relative text-m font-medium text-gray-800 hover:text-[#00B7FF] transition-colors duration-300
+                    after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-0.75 after:w-0 after:bg-[#00B7FF] after:transition-all after:duration-300
                     hover:after:w-full
-                    ${isActive ? 'text-blue-400 after:w-full' : ''}`}
+                    ${isActive ? 'text-[#00B7FF] after:w-full' : ''}`}
                 >
                   {link.label}
                 </Link>
               );
             })}
+              <Link href="/committee" className="flex items-center text-decoration-none">
+                <button className="bg-[#00B7FF] hover:bg-sky-700 text-white rounded-lg px-2 py-1 -mt-1">Register Now</button>
+              </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-blue-400 focus:outline-none focus:ring-2 focus:ring-blue-400"
+              className="text-gray-600 hover:text-[#009EDB] focus:outline-none focus:ring-2 focus:ring-[#009EDB]"
               aria-label="Toggle menu"
             >
               {/* Hamburger Icon */}
@@ -99,7 +104,7 @@ export function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`block px-3 py-2 rounded-md text-base font-medium
-                    ${isActive ? 'text-blue-400 bg-blue-100' : 'text-gray-600 hover:text-blue-400 hover:bg-blue-50'}`}
+                    ${isActive ? 'text-[#009EDB] bg-blue-100' : 'text-gray-600 hover:text-[#009EDB] hover:bg-blue-50'}`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}

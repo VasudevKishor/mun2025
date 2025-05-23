@@ -135,8 +135,8 @@ export default function CommitteePage() {
 
   return (
     <div className="min-h-screen bg-white">
-      <main className="container mx-auto py-12 px-4 sm:px-6">
-        <div className="text-center mb-12">
+      <main className="container mx-auto py-12 px-4 sm:px-6 relative top-9">
+        <div className="text-center mb-12  ">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Our Committees</h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Explore our diverse range of committees and find the perfect fit for your MUN experience.
