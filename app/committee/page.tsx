@@ -135,6 +135,7 @@ export default function CommitteePage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <br />
       <main className="container mx-auto py-12 px-4 sm:px-6 relative top-9">
         <div className="text-center mb-12  ">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Our Committees</h1>
@@ -254,6 +255,9 @@ export default function CommitteePage() {
           </motion.button>
         )}
       </main>
+      <br/>
+      <br />
+      <br />
     </div>
   );
 }
