@@ -18,20 +18,16 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-200">
-      <div className="max-w-screen-xl mx-auto px-4">
+      <div className="max-w-screen-xl mx-auto px-4 md:px-2">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-2 text-decoration-none">
-            <Image className="mt-4"
-              src="/images/AMRITA_MUN'25.png"
+          <Link href="/" className="flex justify-center items-center gap-2 text-decoration-none">
+            <Image className="mt-0"
+              src="/images/mun_nav.png"
               alt="MUN Logo"
-              width={100}
-              height={100}
+              width={190}
+              height={190}
               priority
             />
-            {/* <span className="font-bold text-xl" style={{ color: '#009EDB' }}>Amrita Model United Nations Society</span> */}
-          <div className="flex flex-col leading-none">
-            <span className="text-2xl font-bold text-[#00B7FF] -ml-3">AMRITA-MUN'25</span>
-          </div>
           </Link>
 
 
