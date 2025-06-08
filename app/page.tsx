@@ -5,9 +5,26 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image"
 
 const images = [
-  "/images/AMRITA_MUN25.png",
-  "/images/un_logo.png",
-  "/images/watermelon_head.jpg"
+  
+  "/bg/Image21.jpg",
+  "/bg/Image26.jpg",
+  "/bg/Image6.jpg",
+  "/bg/Image11.jpg",
+  "/bg/Image12.jpg",
+  "/bg/Image2.jpg",
+  "/bg/Image13.jpg",
+  "/bg/Image14.jpg",
+  "/bg/Image15.jpg",
+  "/bg/Image16.jpg",
+  "/bg/Image17.jpg",
+  "/bg/Image18.jpg",
+  "/bg/Image19.jpg",
+  "/bg/Image20.jpg",
+  "/bg/Image22.jpg",
+  "/bg/Image23.jpg",
+  "/bg/Image24.jpg",
+  "/bg/Image25.jpg",
+  "/bg/Image27.jpg",
 ];
 
 export default function Home() {
@@ -124,6 +141,57 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </motion.div>
+          {/* Decorative Background Element */}
+          <motion.div
+            initial={{ y: 0 }}
+            animate={{ y: [0, 15, 0] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            className="absolute inset-0 -z-0 flex items-center justify-center pointer-events-none"
+          >
+            {/* <Globe className="w-[40%] h-[40%] text-un-blue/20 stroke-[0.5]" /> */}
+            <img
+              src="images/AMRITA_MUN25.png"
+              alt="Background"
+              className="w-[38%] h-[78%] opacity-30 -mt-8"
+            />
+          </motion.div>
+        </div>
+      </section>
+
+      <section className="py-24 px-25 bg-white">
+        <div className="container max-w-7xl px-4 border-black">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="space-y-12"
+          >
+            <h2 className="text-3xl md:text-6xl font-bold text-center text-gray-900">
+              Letter from the Secretary-General
+            </h2>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+              Warm greetings,<br/><br/>
+              It is with great pride and anticipation that I welcome you to Amrita MUN 2025 — a conference built on vision, driven by purpose, and alive with possibility.<br/><br/>
+              What began as a bold new chapter last year has now grown into a conference we&apos;re proud to call one of the most potent, well-curated MUNs in the region. This year, we return with four powerful committees and the International Press Corps, a brilliant team, and a renewed commitment to create a platform where diplomacy meets progress and global conversations begin with you.<br/><br/>
+              As delegates, you are not just participants — you are changemakers. Over these three days, you will explore urgent international issues, negotiate across cultures and ideologies, and shape resolutions that reflect both intellect and empathy. You will challenge yourself, grow as leaders, and walk away with more than just awards — you&apos;ll carry forward a mindset of global citizenship.<br/><br/>
+              The Secretariat has worked tirelessly to craft a meaningful, immersive experience, and we are so excited to welcome you to our Ettimadai campus — nestled between hills, ideas, and hope.<br/><br/>
+              So come prepared. Come curious. And come ready to lead.<br/><br/>
+              On behalf of the entire team, I look forward to meeting you in person — and making Amrita MUN 2025 truly unforgettable.
+            </p>
+            <p className="text-lg text-gray-600 max-w-4xl mx-auto ">
+              With pride and pleasure,<br/><br/>
+              <img
+              src="images/Signature.JPG"
+              alt="Background"
+              className="w-[38%] h-[78%]"
+            />
+              Shruti Sivakumar<br/>
+              Secretary General<br/>
+              Amrita MUN 2025<br/>
+              Amrita Vishwa Vidyapeetham, Coimbatore<br/>
+            </p>
           </motion.div>
         </div>
       </section>
