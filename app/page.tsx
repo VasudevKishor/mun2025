@@ -10,21 +10,12 @@ const images = [
   "/bg/Image26.jpg",
   "/bg/Image6.jpg",
   "/bg/Image11.jpg",
-  "/bg/Image12.jpg",
   "/bg/Image2.jpg",
-  "/bg/Image13.jpg",
   "/bg/Image14.jpg",
-  "/bg/Image15.jpg",
-  "/bg/Image16.jpg",
-  "/bg/Image17.jpg",
-  "/bg/Image18.jpg",
-  "/bg/Image19.jpg",
-  "/bg/Image20.jpg",
+  "/bg/Image7.jpg",
   "/bg/Image22.jpg",
   "/bg/Image23.jpg",
   "/bg/Image24.jpg",
-  "/bg/Image25.jpg",
-  "/bg/Image27.jpg",
 ];
 
 export default function Home() {
@@ -149,7 +140,6 @@ export default function Home() {
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
             className="absolute inset-0 -z-0 flex items-center justify-center pointer-events-none"
           >
-            {/* <Globe className="w-[40%] h-[40%] text-un-blue/20 stroke-[0.5]" /> */}
             <img
               src="images/AMRITA_MUN25.png"
               alt="Background"
@@ -160,7 +150,7 @@ export default function Home() {
       </section>
 
       <section className="py-24 px-25 bg-white">
-        <div className="container max-w-7xl px-4 border-black">
+        <div className=" px-4 border-black">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -168,10 +158,10 @@ export default function Home() {
             viewport={{ once: true }}
             className="space-y-12"
           >
-            <h2 className="text-3xl md:text-6xl font-bold text-center text-gray-900">
+            <h2 className="text-3xl md:text-5xl font-bold text-center text-gray-900">
               Letter from the Secretary-General
             </h2>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+            <p className="text-lg text-gray-700 max-w-4xl mx-auto font-serif">
               Warm greetings,<br/><br/>
               It is with great pride and anticipation that I welcome you to Amrita MUN 2025 — a conference built on vision, driven by purpose, and alive with possibility.<br/><br/>
               What began as a bold new chapter last year has now grown into a conference we&apos;re proud to call one of the most potent, well-curated MUNs in the region. This year, we return with four powerful committees and the International Press Corps, a brilliant team, and a renewed commitment to create a platform where diplomacy meets progress and global conversations begin with you.<br/><br/>
@@ -180,23 +170,31 @@ export default function Home() {
               So come prepared. Come curious. And come ready to lead.<br/><br/>
               On behalf of the entire team, I look forward to meeting you in person — and making Amrita MUN 2025 truly unforgettable.
             </p>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto ">
-              With pride and pleasure,<br/><br/>
-              <img
-              src="images/Signature.JPG"
-              alt="Background"
-              className="w-[38%] h-[78%]"
-            />
-              Shruti Sivakumar<br/>
-              Secretary General<br/>
-              Amrita MUN 2025<br/>
-              Amrita Vishwa Vidyapeetham, Coimbatore<br/>
-            </p>
+            <div className="flex justify-center mt-4">
+              <div className="flex flex-row items-start gap-8 max-w-4xl w-full">
+                <div className="flex flex-col justify-start ml-100 w-[70%] text-right">
+                  <p className="text-lg text-gray-700 font-serif">
+                    With pride and pleasure,<br/><br/>
+                  </p>
+                  <img 
+                    src="images/Signature.JPG"
+                    alt="Signature"
+                    className="w-[300px] h-auto mb-4 self-end"
+                  />
+                  <p className="text-lg text-gray-700 font-serif">
+                    Shruti Sivakumar<br/>
+                    Secretary General<br/>
+                    Amrita MUN 2025<br/>
+                    Amrita Vishwa Vidyapeetham, Coimbatore
+                  </p>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      <section className="py-24 bg-white">
+      <section className="py-24 px-25 bg-white">
         <div className="container max-w-7xl px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -211,18 +209,18 @@ export default function Home() {
             <h2 className="text-lg md:text-2xl font-bold text-gray-900 max-w-4xl mx-auto">
               Dear Delegates,
             </h2>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+            <p className="text-lg text-gray-700 max-w-4xl mx-auto">
               Welcome to Amrita-MUN&apos;25 — the premier Model United Nations conference of Amrita Vishwa Vidyapeetham, 
               Coimbatore Campus, where diplomacy, dialogue, and determination converge. From August 1st to 3rd, 2025, 
               join us on a journey that transcends borders and builds bridges of understanding. At Amrita-MUN, you won&apos;t just represent a nation—you&apos;ll step into the shoes of global leaders, 
               tackle real-world crises, and shape meaningful resolutions. Whether you&apos;re a seasoned MUNer or embarking on 
               your first committee, this conference is your stage to speak, lead, and inspire.
             </p>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+            <p className="text-lg text-gray-700 max-w-4xl mx-auto">
               With stimulating agendas, dynamic committees, and a platform that celebrates diverse voices, Amrita-MUN is 
               more than a simulation—it&apos;s an experience that transforms thinkers into changemakers. We can&apos;t wait to welcome you to the conference.
             </p>
-            <p className="text-lg font-extrabold text-gray-600 max-w-4xl mx-auto">
+            <p className="text-lg font-extrabold text-gray-700 max-w-4xl mx-auto">
               The world is waiting. Let&apos;s build it together—one step at a time.
             </p>
           </motion.div>
